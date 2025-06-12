@@ -1,31 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mini E-Commerce</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kartly</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-  <header>
-    <h1>MyShop</h1>
-    <div id="cart-icon">🛒 (<span id="cart-count">0</span>)</div>
-  </header>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">KARTLY</div>
+        <div class="nav-center">
 
-  <main>
-    <div id="product-list"></div>
-  </main>
+            <input type="text" placeholder="Search for products, brands and more" id="search-box" />
+        </div>
+        <div class="nav-links">
+            <a href="#">Login</a>
+            <a href="#">Your Order</a>
+            <a href="#">More</a>
+            <a id="cart-icon" onclick="toggleCart()">🛒 Cart (<span id="cart-count">0</span>)</a>
+        </div>
+    </header>
 
-  <div id="cart-modal" class="modal hidden">
-    <div class="modal-content">
-      <span class="close-btn" onclick="toggleCart()">×</span>
-      <h2>Shopping Cart</h2>
-      <ul id="cart-items"></ul>
-      <p>Total: ₹<span id="cart-total">0</span></p>
-      <button onclick="checkout()">Checkout</button>
+    <!-- Main Product Section -->
+    <main>
+        <h2 class="section-title">Top Deals</h2>
+        <div id="product-list" class="product-grid"></div>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleProductModal()">×</span>
+            <h2 id="modal-product-name"></h2>
+            <img id="modal-product-image" src="" alt="" />
+            <p id="modal-product-price"></p>
+            <p id="modal-product-description"></p>
+        </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleCart()">×</span>
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: ₹<span id="cart-total">0</span></p>
+            <button onclick="checkout()">Place Order</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
