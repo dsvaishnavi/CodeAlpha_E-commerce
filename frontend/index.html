@@ -19,42 +19,57 @@
             <input type="text" placeholder="Search for products, brands and more" id="search-box" />
         </div>
         <div class="nav-links">
-            <a href="#">Login</a>
+            <a href="login.html">Login</a>
             <a href="#">Your Order</a>
             <a href="#">More</a>
             <a id="cart-icon" onclick="toggleCart()">🛒 Cart (<span id="cart-count">0</span>)</a>
         </div>
     </header>
 
-    <!-- Main Product Section -->
-    <main>
-        <h2 class="section-title">Top Deals</h2>
-        <div id="product-list" class="product-grid"></div>
+
+
+
+    <section class="electronics-section">
+        
+            <h2>BEST OF ELECTRONICS</h2>
+            <div class="electronics-grid">
+            <div class="electronic-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo36MIdzwLexq_DEuxVswg6tiQs204b0BqBA&s"
+                    alt="Monitor">
+                <p>Monitors</p>
+            </div>
+            <div class="electronic-card">
+                <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRTtc4Q80TRlZqQFkWtJSSEx7Bm9cTqObEf0ac6qNwg_d1vAdZSsZ9DLi486ibV6H7KhH0R5b6-AwkNZvBVrJ4S125GsPEgMjgd48mi9AfRXGfJAqEkRTz04TgdCK2VxMpvLQ96XA&usqp=CAc"
+                    alt="Headphones">
+                <p>Headphones</p>
+            </div>
+            <div class="electronic-card">
+                <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRyMtjHO4bg7WzCBxAgGlUMyCXTb1VirTW3EfX7E2FrbE16Q87dxlTjdJjK420nc40qT2o8uN84SOkrrof_XPxsurUNzkwtx3x6Vip058lJBuTwGeqouC7WCjPI8c0IWuTuz7DtHw&usqp=CAc"
+                    alt="Mouse">
+                <p>Gaming Mouse</p>
+            </div>
+            <div class="electronic-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2PhJVI2ZlFzW_mqzjSDmWWq20yAHWewoCgw&s"
+                    alt="Laptop Accessories">
+                <p>Laptop Accessories</p>
+            </div>
+            <div class="electronic-card">
+                <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTm6SDz35_HdPso4_NhUEenqyc5jto4hzqAmWWO99P2BNUzmVFGAMR7HZIzVSi-So0SZSBvTJzmWJrPpqFRRcByAiCbP6lZxjHNogyw21t9kccxKuQdHfHtpm_eAkNyRxOn1X1zPlQ&usqp=CAc"
+                    alt="Printers">
+                <p>Printers</p>
+            </div>
+            </div>
+        
+    </section>
+
     </main>
 
-    <!-- Product Detail Modal -->
-    <div id="product-modal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-btn" onclick="toggleProductModal()">×</span>
-            <h2 id="modal-product-name"></h2>
-            <img id="modal-product-image" src="" alt="" />
-            <p id="modal-product-price"></p>
-            <p id="modal-product-description"></p>
-        </div>
-    </div>
-
-    <!-- Cart Modal -->
-    <div id="cart-modal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-btn" onclick="toggleCart()">×</span>
-            <h2>Your Cart</h2>
-            <ul id="cart-items"></ul>
-            <p>Total: ₹<span id="cart-total">0</span></p>
-            <button onclick="checkout()">Place Order</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <script>
+        function goToCategory(category) {
+            const encoded = encodeURIComponent(category);
+            window.location.href = `category.html?category=${encoded}`;
+        }
+    </script>
 </body>
 
 </html>
