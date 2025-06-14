@@ -33,7 +33,7 @@
 
         <h2>BEST OF ELECTRONICS</h2>
         <div class="electronics-grid">
-            <div class="electronic-card">
+            <div class="electronic-card" onclick="goToCategory('monitors')">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo36MIdzwLexq_DEuxVswg6tiQs204b0BqBA&s"
                     alt="Monitor">
                 <p>Monitors</p>
@@ -65,8 +65,7 @@
         <h2>BEST OF CLOTHING</h2>
         <div class="clothing-grid">
             <div class="clothing-card" onclick="goToCategory('men clothing')">
-                <img
-                    src="men.webp">
+                <img src="men.webp">
                 <p>Men's Clothing</p>
             </div>
             <div class="clothing-card" onclick="goToCategory('women clothing')">
@@ -86,45 +85,45 @@
 
     <script>
         function goToCategory(category) {
-            const encoded = encodeURIComponent(category);
-            window.location.href = `category.html?category=${encoded}`;
+            window.location.href = `category.html?category=${encodeURIComponent(category)}`;
+
         }
     </script>
 </body>
 <footer class="footer">
-  <div class="footer-container">
-    <div class="footer-column">
-      <h4>ABOUT</h4>
-      <a href="#">Contact Us</a>
-      <a href="#">About Us</a>
-      <a href="#">Careers</a>
-      <a href="#">Kartly Stories</a>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>ABOUT</h4>
+            <a href="#">Contact Us</a>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Kartly Stories</a>
+        </div>
+        <div class="footer-column">
+            <h4>HELP</h4>
+            <a href="#">Payments</a>
+            <a href="#">Shipping</a>
+            <a href="#">Cancellation & Returns</a>
+            <a href="#">FAQ</a>
+        </div>
+        <div class="footer-column">
+            <h4>POLICY</h4>
+            <a href="#">Return Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Security</a>
+            <a href="#">Privacy</a>
+        </div>
+        <div class="footer-column">
+            <h4>CONNECT</h4>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">YouTube</a>
+        </div>
     </div>
-    <div class="footer-column">
-      <h4>HELP</h4>
-      <a href="#">Payments</a>
-      <a href="#">Shipping</a>
-      <a href="#">Cancellation & Returns</a>
-      <a href="#">FAQ</a>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Kartly. All rights reserved.</p>
     </div>
-    <div class="footer-column">
-      <h4>POLICY</h4>
-      <a href="#">Return Policy</a>
-      <a href="#">Terms of Use</a>
-      <a href="#">Security</a>
-      <a href="#">Privacy</a>
-    </div>
-    <div class="footer-column">
-      <h4>CONNECT</h4>
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">Twitter</a>
-      <a href="#">YouTube</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 Kartly. All rights reserved.</p>
-  </div>
 </footer>
 
 

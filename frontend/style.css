@@ -13,7 +13,7 @@ body {
 
 /* Navbar */
 .navbar {
-  background-color: #5a20cb;
+  background: linear-gradient(to right, #5a20cb, #8f43ee);
   color: white;
   padding: 10px 20px;
   display: flex;
@@ -26,11 +26,10 @@ body {
 }
 
 .navbar .logo {
-  font-size: 26px;
-  font-weight: 600;
-  flex: 0;
-  margin-left: 60px;
+  font-size: 24px;
+  font-weight: 700;
   color: #ffd93d;
+  letter-spacing: 1px;
 }
 .nav-center {
   flex: 2;
@@ -63,7 +62,7 @@ body {
 }
 
 .nav-links a:hover {
-  transform: translateY(-2px);
+ background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Section Title */
@@ -229,7 +228,7 @@ button:hover {
   background-color: #0d002d;
   color: #fff;
   padding: 20px 20px 20px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .footer-container {
@@ -250,7 +249,7 @@ button:hover {
   margin-bottom: 15px;
   font-size: 16px;
   font-weight: 600;
-  color: #FFD93D;
+  color: #ffd93d;
 }
 
 .footer-column a {
@@ -285,7 +284,6 @@ button:hover {
     text-align: center;
   }
 }
-
 
 /* Responsive Styles */
 @media (max-width: 768px) {

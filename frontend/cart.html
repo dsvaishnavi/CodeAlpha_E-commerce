@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kartly - Cart</title>
+  <link rel="stylesheet" href="cart.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">KARTLY</div>
+    <div class="nav-center">
+      <input type="text" placeholder="Search for products, brands and more" id="search-box" />
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#">Your Order</a>
+      <a href="#">More</a>
+      <a id="cart-icon" href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a>
+    </div>
+  </header>
+
+  <!-- Cart Section -->
+  <section class="cart-section">
+    <h2 class="cart-title">Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="cart-summary" id="cart-summary"></div>
+    <div style="text-align: right; margin-top: 20px;">
+      <button id="payment-btn"
+        style="padding: 10px 20px; background-color: #2874f0; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Proceed to Payment
+      </button>
+    </div>
+  </section>
+
+  <script>
+    function updateCartDisplay() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const cartItemsContainer = document.getElementById("cart-items");
+      const cartSummary = document.getElementById("cart-summary");
+      const cartCount = document.getElementById("cart-count");
+
+      cartItemsContainer.innerHTML = "";
+      let total = 0;
+      let itemCount = 0;
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = `<p class="empty-cart">Your cart is empty.</p>`;
+        cartSummary.innerHTML = "";
+        cartCount.innerText = 0;
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "cart-item";
+        itemDiv.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" />
+          <div class="cart-item-details">
+            <h3>${item.name}</h3>
+            <p>Price: ₹${item.price}</p>
+            <div class="quantity-controls">
+              <button onclick="changeQuantity(${index}, -1)">−</button>
+              <span>${item.quantity}</span>
+              <button onclick="changeQuantity(${index}, 1)">+</button>
+            </div>
+            <p class="cart-price">Subtotal: ₹${item.price * item.quantity}</p>
+          </div>
+          <button class="cart-remove" onclick="removeItem(${index})">Remove</button>
+        `;
+        cartItemsContainer.appendChild(itemDiv);
+        total += item.price * item.quantity;
+        itemCount += item.quantity;
+      });
+
+      cartSummary.innerText = `Total: ₹${total}`;
+      cartCount.innerText = itemCount;
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartDisplay();
+    }
+
+    function changeQuantity(index, delta) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      if (cart[index].quantity + delta >= 1) {
+        cart[index].quantity += delta;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartDisplay();
+      }
+    }
+
+    document.getElementById("payment-btn").addEventListener("click", () => {
+      alert("Redirecting to payment gateway...");
+    });
+
+    document.addEventListener("DOMContentLoaded", updateCartDisplay);
+  </script>
+</body>
+
+</html>
