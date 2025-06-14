@@ -120,11 +120,6 @@ button:hover {
   background-color: #f2c200;
 }
 
-
-
-
-
-
 .close-btn {
   position: absolute;
   top: 10px;
@@ -137,6 +132,7 @@ button:hover {
   padding: 40px 20px;
   background-color: #e6e5f3;
   text-align: center;
+  margin: 12px;
 }
 
 .electronics-section h2 {
@@ -173,12 +169,123 @@ button:hover {
   object-fit: contain;
   margin-bottom: 10px;
 }
-
 .electronic-card p {
   font-size: 18px;
   color: #333;
   font-weight: 500;
 }
+/* --------------------------------------------------------------------clothing--------------------------------------------------------------------------------------- */
+.clothing-section {
+  margin: 13px 11px;
+  background-color: #e6e5f3;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.clothing-section h2 {
+  font-size: 25px;
+  margin-bottom: 15px;
+
+  color: #2c2c2c;
+}
+
+.clothing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 270px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.clothing-card {
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.clothing-card:hover {
+  transform: translateY(-5px);
+}
+
+.clothing-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.clothing-card p {
+  padding: 12px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #444;
+}
+/* --------------------------------------------------------------footer--------------------------------------------------------------------------- */
+.footer {
+  background-color: #0d002d;
+  color: #fff;
+  padding: 20px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.footer-column h4 {
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFD93D;
+}
+
+.footer-column a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 8px;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #aaa;
+  border-top: 1px solid #333;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
