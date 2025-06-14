@@ -25,6 +25,16 @@
             <a id="cart-icon" onclick="toggleCart()">🛒 Cart (<span id="cart-count">0</span>)</a>
         </div>
     </header>
+    <div class="carousel-container">
+        <div class="carousel-slide" id="carousel-slide">
+            <img src="https://www.figma.com/community/resource/fd4e4374-4a37-4545-84e1-93be813dc43b/thumbnail" alt="Banner 1" />
+            <img src="images/banner2.jpg" alt="Banner 2" />
+            <img src="images/banner3.jpg" alt="Banner 3" />
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">❮</button>
+        <button class="next" onclick="moveSlide(1)">❯</button>
+
+    </div>
 
 
 
@@ -65,11 +75,11 @@
         <h2>BEST OF CLOTHING</h2>
         <div class="clothing-grid">
             <div class="clothing-card" onclick="goToCategory('men clothing')">
-                <img src="men.webp">
+                <img src="images/men.webp">
                 <p>Men's Clothing</p>
             </div>
             <div class="clothing-card" onclick="goToCategory('women clothing')">
-                <img src="women.jpg">
+                <img src="images/women.jpg">
                 <p>Women's Clothing</p>
             </div>
             <div class="clothing-card" onclick="goToCategory('kids clothing')">
@@ -88,6 +98,25 @@
             window.location.href = `category.html?category=${encodeURIComponent(category)}`;
 
         }
+
+        let slideIndex = 0;
+        const slide = document.getElementById("carousel-slide");
+        const totalSlides = slide.children.length;
+
+        function showSlide(index) {
+            if (index < 0) slideIndex = totalSlides - 1;
+            else if (index >= totalSlides) slideIndex = 0;
+            else slideIndex = index;
+
+            slide.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+
+        function moveSlide(n) {
+            showSlide(slideIndex + n);
+        }
+
+        // Auto slide every 4 seconds
+        setInterval(() => moveSlide(1), 3000);
     </script>
 </body>
 <footer class="footer">
