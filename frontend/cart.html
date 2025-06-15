@@ -30,8 +30,8 @@
     <div id="cart-items"></div>
     <div class="cart-summary" id="cart-summary"></div>
     <div style="text-align: right; margin-top: 20px;">
-      <button id="payment-btn"
-        style="padding: 10px 20px; background-color: #2874f0; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      <button id="proceed-to-payment"
+        style="padding: 10px 20px; background-color: #7728ff; color: white; border: none; border-radius: 5px; cursor: pointer;">
         Proceed to Payment
       </button>
     </div>
@@ -97,9 +97,13 @@
       }
     }
 
-    document.getElementById("payment-btn").addEventListener("click", () => {
-      alert("Redirecting to payment gateway...");
+    document.getElementById("proceed-to-payment").addEventListener("click", () => {
+      // Clear any existing buyNowProduct just in case
+      localStorage.removeItem("buyNowProduct");
+      // Redirect to order page
+      window.location.href = "order.html";
     });
+
 
     document.addEventListener("DOMContentLoaded", updateCartDisplay);
   </script>

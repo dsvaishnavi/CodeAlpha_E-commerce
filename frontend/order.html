@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Summary - Kartly</title>
+    <link rel="stylesheet" href="order.css" />
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">KARTLY</div>
+    </header>
+
+    <main class="order-page">
+        <h2>Order Summary</h2>
+
+        <div class="order-items" id="order-items">
+            <!-- JS will populate selected cart items here -->
+        </div>
+
+        <div class="order-total">
+            <strong>Total:</strong> ₹<span id="order-total">0</span>
+        </div>
+
+        <h3>Shipping Details</h3>
+        <form id="order-form">
+            <input type="text" name="fullname" placeholder="Full Name" required />
+            <input type="text" name="address" placeholder="Address" required />
+            <input type="text" name="phone" placeholder="Phone Number" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <select name="payment" required>
+                <option value="">Select Payment Method</option>
+                <option value="cod">Cash on Delivery</option>
+                <option value="upi">UPI</option>
+                <option value="card">Credit/Debit Card</option>
+            </select>
+            <button type="submit">Place Order</button>
+        </form>
+    </main>
+
+    <script>
+        const itemsContainer = document.getElementById("order-items");
+        const totalSpan = document.getElementById("order-total");
+
+        const buyNowProduct = JSON.parse(localStorage.getItem("buyNowProduct"));
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        let total = 0;
+
+        if (buyNowProduct) {
+            const div = document.createElement("div");
+            div.className = "order-item";
+            div.innerHTML = `
+            <p><strong>${buyNowProduct.name}</strong> × 1</p>
+            <p>₹${buyNowProduct.price}</p>
+        `;
+            total = buyNowProduct.price;
+            itemsContainer.appendChild(div);
+
+            totalSpan.innerText = total;
+
+            // Clear buyNowProduct after showing
+            localStorage.removeItem("buyNowProduct");
+        } else if (cart.length > 0) {
+            cart.forEach(item => {
+                const div = document.createElement("div");
+                div.className = "order-item";
+                div.innerHTML = `
+                <p><strong>${item.name}</strong> × ${item.quantity}</p>
+                <p>₹${item.price * item.quantity}</p>
+            `;
+                total += item.price * item.quantity;
+                itemsContainer.appendChild(div);
+            });
+
+            totalSpan.innerText = total;
+        } else {
+            itemsContainer.innerHTML = "<p>Your cart is empty!</p>";
+            document.getElementById("order-form").style.display = "none";
+        }
+
+        document.getElementById("order-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Order placed successfully!");
+            localStorage.removeItem("cart");
+            window.location.href = "index.html"; // Redirect to homepage
+        });
+    </script>
+
+</body>
+
+</html>

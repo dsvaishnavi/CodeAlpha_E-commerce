@@ -1,0 +1,106 @@
+/* order.css - Violet Blue Theme */
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f4f4fc;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(90deg, #6a11cb, #2575fc); /* violet to blue */
+  color: #fff;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Main order summary */
+.order-page {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.order-page h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #4a148c; /* deep violet */
+}
+
+.order-items {
+  margin-bottom: 20px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.order-total {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right;
+  margin-bottom: 30px;
+  color: #2e1a47;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #512da8; /* violet-blue */
+}
+
+/* Form styling */
+form input,
+form select {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #fafafa;
+}
+
+form select {
+  background-color: #fff;
+}
+
+form button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: linear-gradient(90deg, #5a0eb3, #1f5fdc);
+}

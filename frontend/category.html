@@ -19,7 +19,7 @@
         <div class="nav-links">
             <a href="login.html">Login</a>
             <a href="#">Your Order</a>
-            <a href="#">More</a>
+            <a href="index.html">Home</a>
             <a id="cart-icon" href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a>
         </div>
     </header>
@@ -124,10 +124,22 @@
                     addToCart(productData[index]);
                 });
             });
+            // Buy Now buttons
+            const buyButtons = document.querySelectorAll(".buy-now");
+            buyButtons.forEach((btn, index) => {
+                btn.addEventListener("click", () => {
+                    const product = productData[index];
+                    localStorage.setItem("buyNowProduct", JSON.stringify(product));
+                    window.location.href = "order.html";
+                });
+            });
+
 
             // Update cart count when page loads
             updateCartCount();
         });
+
+
     </script>
     <div id="toast" class="toast">Item added to cart!</div>
 
